@@ -1,0 +1,629 @@
+
+
+/* Preset colors and attributes */
+:root {
+    --primary-color: #062830;
+    --background-color: #96C3A3;
+    --void-color: #EAEAEA;
+    --gray-color: #838383;
+    --radius: 20px;
+}
+
+/* Cairo font */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+
+@keyframes redHighlight {
+    from {
+        color: red;
+    }
+    to {
+        color: var(--primary-color);
+    }
+}
+
+
+
+
+/* ------------------------------ GENERAL ------------------------------ */
+
+body {
+    font-family: 'Cairo', 'Arial', sans-serif;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+  
+a {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+a:hover {
+    background-color: #62A27E;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+td {
+    padding: 10px;
+}
+  
+
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+footer {
+    margin-top: 10%;
+}
+
+
+.bodywrapper {
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.contentwrapper {
+    background-color: var(--void-color);
+    margin: 0;
+    padding: 0px 20px 0px 20px;
+    overflow: auto;
+    min-height: 60vh
+}
+
+select , input {
+    font-family: 'Cairo', 'Arial', sans-serif;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 200px;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    text-align: center;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+
+/* ------------------------------ COMPONENTS ------------------------------ */
+
+/* MAIN PANEL */
+
+.main_panel {
+    background-color: var(--background-color);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.main_panel h1 {
+    margin-left: 20px;
+}
+
+.main_link {
+    text-decoration: none;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-color);
+}
+.main_link:hover {
+    text-decoration: none;
+    background-color: var(--background-color);
+}
+
+#login_button {
+    max-height: 20px;
+    margin-right: 20px;
+}
+
+
+
+
+/* NAV PANEL */
+
+.nav_panel_button_intern {
+    font-weight: 900;
+    border: 1px solid var(--primary-color);
+}
+
+.nav_panel {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    border-top: solid var(--primary-color) 1.5px;
+}
+
+
+.footer_panel {
+    background-color: var(--background-color);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+#help_button {
+    margin-left: 20px;
+}
+
+
+/* FLEXIBLE BUTTON */
+
+.flexible-button {
+    padding: 15px 30px; /* Adjust padding for a larger button */
+    font-size: 18px; /* Adjust font size for better visibility */
+    background-color: var(--primary-color); /* Example background color */
+    color: var(--background-color); /* Example text color */
+    border: 2px solid var(--background-color);
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+  
+    /* Responsive styling */
+    @media screen and (max-width: 1000px) {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+  
+    /* Add more media queries as needed for different screen sizes */
+}
+
+
+
+
+
+
+
+
+/* ------------------------------ PAGES ------------------------------ */
+
+
+/* UZIVATEL HOME PAGE */
+
+.formularspoje {
+    width: 60%;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.formularspoje h2 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.formularspoje form {
+    display: grid;
+    margin: 20px;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.formularspoje form button {
+    grid-column: span 2;
+    margin: 20px auto;
+    width: 30%;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--primary-color);
+    color: var(--void-color);
+    padding: 5px 0px 5px 0px;
+}
+
+.formularspoje form input , .formularspoje form select {
+    width: 200px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+}
+
+.missing {
+    animation: redHighlight 3s ease forwards;
+}
+
+.formularspoje form .formtuple:last-of-type {
+    grid-column: span 2;
+    align-items: center;
+    justify-content: center;
+}
+
+.formtuple {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.formtuple label input {
+    width: fit-content;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+
+/* UZIVATEL PREHLED LINEK */
+
+.uzivatelprehledlinek .contentwrapper h2 {
+    text-align: center;
+}
+
+.transportoptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.transport_option {
+    margin: 10px;
+}
+
+/* UZIVATEL DETAIL LINKY */
+
+.linedetailslist {
+    list-style: none;
+    padding: 0;
+}
+
+.linedetailslist li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.linedetailelement {
+    width: 250px;
+    text-align: center;
+}
+
+/* TECHNIK HOME PAGE */
+
+.tablelistelements {
+    list-style: none;
+    padding: 0;
+    border-top: solid var(--primary-color) 2px;
+}
+
+.tablelistelements li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0px;
+    margin: 0;
+    min-width: fit-content;
+    max-height: fit-content;
+}
+
+.tablelistelements li > div {
+    display: inline-grid;
+    column-gap: 20px;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    min-width: auto;
+    align-items: center;
+    box-sizing: border-box;
+    width: 90%;
+    text-align: center;
+}
+
+.tablelistelements li > div p {
+    text-align: center;
+    display: inline;
+    width: 100%;
+}
+
+.tablelistelements button:hover {
+    background-color: var(--void-color);
+    color: var(--primary-color);
+}
+
+.tablelistlabels {
+    display: inline-grid;
+    column-gap: 20px;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    min-width: auto;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    width: 90%;
+}
+
+/* TECHNIK DETAIL PAGE */
+
+.listhodnota {
+    max-width: 200px;
+    width: 50%;
+}
+
+.vehicledetails ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.headerbuttonwrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerbuttonwrap a {
+    margin: 0;
+    padding: 10px 20px;
+}
+
+.vehicledetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.vehicledetails ul {
+    list-style: none;
+    padding: 0;
+    width: 40%;
+}
+
+.vehicledetails img {
+    max-width: 300px;
+    height: auto;
+}
+
+.recordlistelements {
+    list-style: none;
+    padding: 0;
+}
+
+.recordlistelements li * {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    width: 200px;
+}
+
+.recordlistelements li {
+    border-top: solid var(--primary-color) 2px;
+}
+
+.recordlistelements li .recordlistlabels {
+    width: 100%;
+}
+
+.recordlistelements li .recordnewline {
+    width: 100%;
+    justify-content: center;
+}
+
+.recordlistelements li .recordnewline a {
+    padding: 0px 10px;
+    text-align: center;
+    display: block;
+}
+
+.recordlistelements li .recordflushleft {
+    justify-content: left;
+}
+
+.recordlistelements li .recordnewline p {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid var(--gray-color);
+}
+
+/* TECHNIK NOVY ZAZNAM */
+
+.recordformnew {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.recordformnew > * {
+    margin-top: 20px;
+}
+
+.recordformnew input[type="text"] {
+    padding: 5px;
+    border: 1px solid var(--gray-color);
+    border-radius: 4px;
+    width: 100%;
+    max-width: 800px;
+    min-height: 50px;
+}
+
+.recordformnew label {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.recordformnew button {
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--primary-color);
+    color: var(--void-color);
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+}
+
+/* UZIVATEL PREHLED LINEK */
+
+.lineslist li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    align-items: center;
+}
+
+.lineslistlegend {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/* LOGIN PAGE */
+
+.loginpage {
+    background-color: var(--background-color);
+    border-radius: var(--radius);
+    padding: 2em 5em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.loginpage form {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginpage form input {
+    border: none;
+    border-radius: 0;
+    padding: 5px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.loginpage button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--radius);
+    padding: 1em;
+    color: var(--void-color);
+}
+
+.loginpage button:hover {
+    color: var(--background-color);
+}
+
+.loginpage > div {
+    width: 40%;
+}
+
+
+/* PRO NOVOU STRANKU PRIDAVAT STYLY ZDE */
+
+/*Vytvareni Linek */
+.formularlinky {
+    width: 60%;
+    margin: 10% auto;
+    background-color: var(--background-color);
+    border-radius: 20px;
+}
+
+.formularlinky h2 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.formularlinky form {
+    display: grid;
+    margin: 20px;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.formularlinky form button {
+    grid-column: span 2;
+    margin: 20px auto;
+    width: 30%;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--primary-color);
+    color: var(--void-color);
+    padding: 5px 0px 5px 0px;
+}
+
+.formularlinky form input , .formularlinky form select {
+    width: 200px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+}
+
+.missing {
+    animation: redHighlight 3s ease forwards;
+}
+
+.formularlinky form .formtuple:last-of-type {
+    grid-column: span 2;
+    align-items: center;
+    justify-content: center;
+}
+
+.formtuple {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.formtuple label input {
+    width: fit-content;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* VKLADANI ZASTAVEK*/
+.formularzastavky {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.column {
+    flex: 1;
+    margin-right: 20px; /* Adjust the margin as needed */
+}
